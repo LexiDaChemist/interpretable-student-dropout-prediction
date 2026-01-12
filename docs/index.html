@@ -2,82 +2,111 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Student Dropout Prediction</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Student Outcome Prediction</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon.png">
 </head>
-<body>
-  <header class="wrap">
-    <h1>Student Outcome Prediction</h1>
-    <p class="subtitle">
-      Predicts whether a student is likely to <b>Dropout</b>, stay <b>Enrolled</b>, or <b>Graduate</b>.
-    </p>
 
-    <div class="buttons">
-      <a class="btn" href="https://github.com/LexiDaChemist/interpretable-student-dropout-prediction" target="_blank">
-        View Code on GitHub
-      </a>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">Student Outcome Prediction</div>
+
+      <nav class="nav">
+        <a href="#overview">Overview</a>
+        <a href="#results">Results</a>
+        <a href="#interpretability">Interpretability</a>
+        <a class="btn" href="https://github.com/YOUR_USERNAME/interpretable-student-dropout-prediction" target="_blank" rel="noreferrer">
+          View Code on GitHub
+        </a>
+      </nav>
     </div>
   </header>
 
-  <main class="wrap">
-    <section class="card">
-      <h2>Project Overview</h2>
-      <p class="center-text">
-        This project uses historical student data to predict academic outcomes.
-        It also explains <i>why</i> the model makes each prediction using interpretable machine learning. 
+  <main class="container">
+    <section class="hero">
+      <h1>Predicts whether a student is likely to <span class="em">Dropout</span>, stay <span class="em">Enrolled</span>, or <span class="em">Graduate</span>.</h1>
+      <p class="lead">
+        A logistic regression model trained on historical student records. Includes evaluation + interpretable explanations
+        of the strongest factors driving each predicted outcome.
+      </p>
+    </section>
+
+    <section id="overview" class="grid">
+      <article class="card">
+        <h2>Project Overview</h2>
+        <p>
+          This project uses student demographics, enrollment status, and academic progress features to predict outcomes.
+          It also produces interpretability visuals showing which features push the model toward each class.
+        </p>
+
+        <h3>Predicted outcomes</h3>
+        <ul>
+          <li>Dropout</li>
+          <li>Enrolled</li>
+          <li>Graduate</li>
+        </ul>
+
+        <h3>Key features used</h3>
+        <ul>
+          <li>Age at enrollment</li>
+          <li>Tuition fees up to date</li>
+          <li>Scholarship holder</li>
+          <li>Debtor</li>
+          <li>Unemployment rate</li>
+          <li>Academic unit approvals / grades</li>
+        </ul>
+      </article>
+
+      <article id="results" class="card">
+        <h2>Project Results</h2>
+
+        <div class="figure-grid">
+          <figure class="figure">
+            <img src="assets/confusion_matrix.jpg" alt="Confusion matrix" />
+            <figcaption><strong>Model Evaluation</strong><br/>Confusion matrix on test set</figcaption>
+          </figure>
+
+          <figure class="figure">
+            <img src="assets/predict_output.jpg" alt="Prediction example output" />
+            <figcaption><strong>Prediction Example</strong><br/>Predicted class + probabilities</figcaption>
+          </figure>
+
+          <figure class="figure">
+            <img src="assets/explain_bars_dropout.jpg" alt="Dropout feature influence bars" />
+            <figcaption><strong>Feature Influence</strong><br/>Top factors driving Dropout</figcaption>
+          </figure>
+        </div>
+      </article>
+    </section>
+
+    <section id="interpretability" class="card">
+      <h2>Interpretability (Readable Explanations)</h2>
+      <p class="muted">
+        These charts summarize which features push predictions toward or away from each class.
       </p>
 
-      <h3>Predicted outcomes</h3>
-      <ul>
-        <li>Dropout</li>
-        <li>Enrolled</li>
-        <li>Graduate</li>
-      </ul>
-
-      <h3>Key features used</h3>
-      <ul>
-        <li>Age at enrollment</li>
-        <li>Tuition payment status</li>
-        <li>Curricular units approved</li>
-        <li>Scholarship status</li>
-        <li>Enrollment characteristics</li>
-      </ul>
-
-      <div class="pill-row">
-        <span class="pill">Python</span>
-        <span class="pill">scikit-learn</span>
-        <span class="pill">Logistic Regression</span>
-        <span class="pill">Interpretability</span>
-      </div>
-    </section>
-
-    <section class="card">
-      <h2>Project Results</h2>
-
-      <div class="grid">
-        <figure>
-          <img src="assets/confusion_matrix.png" alt="Confusion Matrix">
-          <figcaption>Model Evaluation</figcaption>
+      <div class="tabs-grid">
+        <figure class="figure">
+          <img src="assets/explain_table_dropout.jpg" alt="Dropout explanation table" />
+          <figcaption><strong>Dropout</strong> — top “toward” and “away” features</figcaption>
         </figure>
 
-        <figure>
-          <img src="assets/explain_output.png" alt="Feature Importance">
-          <figcaption>Top Influential Features</figcaption>
+        <figure class="figure">
+          <img src="assets/explain_table_enrolled.jpg" alt="Enrolled explanation table" />
+          <figcaption><strong>Enrolled</strong> — top “toward” and “away” features</figcaption>
         </figure>
 
-        <figure>
-          <img src="assets/predict_output.png" alt="Prediction Example">
-          <figcaption>Sample Prediction</figcaption>
+        <figure class="figure">
+          <img src="assets/explain_table_graduate.jpg" alt="Graduate explanation table" />
+          <figcaption><strong>Graduate</strong> — top “toward” and “away” features</figcaption>
         </figure>
       </div>
     </section>
+
+    <footer class="footer">
+      <p>Built with Python (pandas, scikit-learn, matplotlib) + GitHub Pages.</p>
+    </footer>
   </main>
-
-  <footer class="wrap footer">
-    <p class="muted">Built by Your Name</p>
-  </footer>
 </body>
 </html>
