@@ -98,6 +98,3 @@ Kaggle distributions of the dataset trace back to this publication.
 
 This repository is intended for **educational and research purposes only**.  
 Please cite the original publication if using the dataset or derived results in academic work.
-
-## Repository Structure
-
