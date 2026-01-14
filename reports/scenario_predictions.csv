@@ -1,0 +1,5 @@
+Scenario,P(Dropout),P(Enrolled),P(Graduate)
+"Low risk (strong academics, financially stable)",0.08362506821020327,0.3537135160307032,0.5626614157590935
+Financial stress (debtor + tuition not up to date),0.6529201979210343,0.3148550314286433,0.03222477065032253
+Academic struggle (low approvals / engagement),0.11551652508337676,0.4994912143831619,0.38499226053346125
+Mixed signals (scholarship but tuition behind),0.5579711378495682,0.3098574705321546,0.13217139161827718
