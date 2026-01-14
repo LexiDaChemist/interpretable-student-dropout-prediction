@@ -3,42 +3,57 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Student Outcome Prediction</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Interpretable Student Dropout Prediction</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-  <header class="topbar">
-    <div class="container topbar-inner">
-      <div class="brand">Student Outcome Prediction</div>
+  <!-- Top Navigation -->
+  <nav class="topnav">
+    <div class="nav-inner">
+      <a class="brand" href="#">Student Dropout Prediction</a>
 
-      <nav class="nav">
+      <div class="nav-links">
         <a href="#overview">Overview</a>
         <a href="#results">Results</a>
         <a href="#interpretability">Interpretability</a>
-        <a class="btn" href="https://github.com/LexiDaChemist/interpretable-student-dropout-prediction" target="_blank" rel="noreferrer">
+        <a href="#data">Data Source</a>
+        <a class="btn-link" href="https://github.com/YOUR_USERNAME/YOUR_REPO" target="_blank" rel="noreferrer">
           View Code on GitHub
         </a>
-      </nav>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="container hero-inner">
+      <h1>
+        Predicts whether a student is likely to
+        <span class="accent">Dropout</span>,
+        stay <span class="accent">Enrolled</span>,
+        or <span class="accent">Graduate</span>
+      </h1>
+      <p class="subtitle">
+        An interpretable multiclass logistic regression model using academic and financial indicators,
+        with transparent explanations and responsible scenario-based predictions.
+      </p>
     </div>
   </header>
 
   <main class="container">
-    <section class="hero">
-      <h1>Predicts whether a student is likely to <span class="em">Dropout</span>, stay <span class="em">Enrolled</span>, or <span class="em">Graduate</span>.</h1>
-      <p class="lead">
-        A logistic regression model trained on historical student records. Includes evaluation + interpretable explanations
-        of the strongest factors driving each predicted outcome.
-      </p>
-    </section>
-
-    <section id="overview" class="grid">
-      <article class="card">
+    <!-- Overview + Results -->
+    <section class="grid-2" id="overview">
+      <!-- Overview -->
+      <div class="card">
         <h2>Project Overview</h2>
         <p>
-          This project uses student demographics, enrollment status, and academic progress features to predict outcomes.
-          It also produces interpretability visuals showing which features push the model toward each class.
+          This project predicts student academic outcomes using demographic, academic progress,
+          and financial indicators. The model prioritizes interpretability, enabling clear
+          understanding of how different factors influence predictions.
         </p>
+
+        <div class="divider"></div>
 
         <h3>Predicted outcomes</h3>
         <ul>
@@ -47,65 +62,197 @@
           <li>Graduate</li>
         </ul>
 
-        <h3>Key features used</h3>
+        <h3>Key feature areas</h3>
         <ul>
-          <li>Age at enrollment</li>
-          <li>Tuition fees up to date</li>
-          <li>Scholarship holder</li>
-          <li>Debtor</li>
-          <li>Unemployment rate</li>
-          <li>Academic unit approvals / grades</li>
+          <li>Financial status (Debtor, Tuition fees up to date, Scholarship holder)</li>
+          <li>Academic progress (Curricular units enrolled and approved)</li>
+          <li>Demographics (Gender, Marital status)</li>
+          <li>Contextual factors (Unemployment rate)</li>
         </ul>
-      </article>
 
-      <article id="results" class="card">
-        <h2>Project Results</h2>
-
-        <div class="figure-grid">
-          <figure class="figure">
-            <img src="assets/images/confusion_matrix.jpg" alt="Confusion Matrix">
-            <figcaption><strong>Model Evaluation</strong><br/>Confusion matrix on test set</figcaption>
-          </figure>
-
-          <figure class="figure">
-            <img src="assets/images/explain_output.jpg" alt="Feature Importance">
-            <figcaption><strong>Prediction Example</strong><br/>Predicted class + probabilities</figcaption>
-          </figure>
-
-          <figure class="figure">
-            <img src="assets/images/predict_output.jpg" alt="Prediction Example">
-            <figcaption><strong>Feature Influence</strong><br/>Top factors driving Dropout</figcaption>
-          </figure>
+        <div class="small-note">
+          Outcome-rate visualizations are descriptive, while model explanation plots reflect
+          conditional effects after controlling for all features.
         </div>
-      </article>
-    </section>
+      </div>
 
-    <section id="interpretability" class="card">
-      <h2>Interpretability (Readable Explanations)</h2>
-      <p class="muted">
-        These charts summarize which features push predictions toward or away from each class.
-      </p>
+      <!-- Results -->
+      <div class="stack" id="results">
+        <!-- Confusion Matrix -->
+        <div class="card">
+          <div class="card-head">
+            <h2>Model Performance</h2>
+            <span class="pill">Confusion Matrix</span>
+          </div>
 
-      <div class="tabs-grid">
-        <figure class="figure">
-          <img src="assets/explain_table_dropout.jpg" alt="Dropout explanation table" />
-          <figcaption><strong>Dropout</strong> — top “toward” and “away” features</figcaption>
-        </figure>
+          <img class="img" src="assets/confusion_matrix.jpg" alt="Confusion matrix" />
+          <p class="caption">Confusion matrix evaluated on a held-out test set.</p>
+        </div>
 
-        <figure class="figure">
-          <img src="assets/explain_table_enrolled.jpg" alt="Enrolled explanation table" />
-          <figcaption><strong>Enrolled</strong> — top “toward” and “away” features</figcaption>
-        </figure>
+        <!-- Scenario Predictions -->
+        <div class="card">
+          <div class="card-head">
+            <h2>Scenario-Based Predictions (Option A)</h2>
+            <span class="pill">Interpretability-focused</span>
+          </div>
 
-        <figure class="figure">
-          <img src="assets/explain_table_graduate.jpg" alt="Graduate explanation table" />
-          <figcaption><strong>Graduate</strong> — top “toward” and “away” features</figcaption>
-        </figure>
+          <p class="caption">
+            These scenario-based predictions illustrate how the trained multiclass logistic regression
+            model responds to different combinations of academic and financial conditions. Predicted
+            probabilities are conditional on all model inputs and represent associations learned from
+            the data rather than causal effects. Consistent with coefficient-based explanations,
+            financial stress indicators produce the largest shifts toward dropout risk, while academic
+            progress primarily differentiates graduation from continued enrollment.
+          </p>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Scenario</th>
+                  <th>P(Dropout)</th>
+                  <th>P(Enrolled)</th>
+                  <th>P(Graduate)</th>
+                  <th>Most likely outcome</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Low risk (strong academics, financially stable)</td>
+                  <td>0.084</td>
+                  <td>0.354</td>
+                  <td>0.563</td>
+                  <td><strong>Graduate</strong></td>
+                </tr>
+                <tr>
+                  <td>Financial stress (debtor + tuition not up to date)</td>
+                  <td>0.653</td>
+                  <td>0.315</td>
+                  <td>0.032</td>
+                  <td><strong>Dropout</strong></td>
+                </tr>
+                <tr>
+                  <td>Academic struggle (low approvals / engagement)</td>
+                  <td>0.116</td>
+                  <td>0.499</td>
+                  <td>0.385</td>
+                  <td><strong>Enrolled</strong></td>
+                </tr>
+                <tr>
+                  <td>Mixed signals (scholarship but tuition behind)</td>
+                  <td>0.558</td>
+                  <td>0.310</td>
+                  <td>0.132</td>
+                  <td><strong>Dropout</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p class="small-note">
+            Reduced academic engagement alone increases the probability of remaining enrolled rather
+            than graduating; dropout risk rises most sharply when academic difficulties co-occur with
+            financial stress indicators.
+          </p>
+
+          <p class="small-note">
+            Scenario patterns align with the model explanation plots: dropout-skewed scenarios correspond
+            to financial stress drivers, while low-risk scenarios align with academic progress drivers
+            in the graduate explanation.
+          </p>
+        </div>
       </div>
     </section>
 
+    <!-- Outcome Patterns -->
+    <section class="card">
+      <div class="card-head">
+        <h2>Outcome Patterns in the Data</h2>
+        <span class="pill">Descriptive analysis</span>
+      </div>
+
+      <div class="grid">
+        <figure>
+          <img class="img" src="assets/heatmap_rate_debtor.jpg" alt="Outcome rates by Debtor" />
+          <figcaption>Outcome rates by debtor status.</figcaption>
+        </figure>
+
+        <figure>
+          <img class="img" src="assets/heatmap_rate_scholarship_holder.jpg" alt="Outcome rates by Scholarship holder" />
+          <figcaption>Outcome rates by scholarship status.</figcaption>
+        </figure>
+
+        <figure>
+          <img class="img" src="assets/heatmap_rate_gender.jpg" alt="Outcome rates by Gender" />
+          <figcaption>Outcome rates by gender.</figcaption>
+        </figure>
+
+        <figure>
+          <img class="img" src="assets/heatmap_rate_marital_status.jpg" alt="Outcome rates by Marital status" />
+          <figcaption>Outcome rates by marital status.</figcaption>
+        </figure>
+
+        <figure>
+          <img class="img" src="assets/heatmap_rate_unemployment_rate.jpg" alt="Outcome rates by Unemployment rate" />
+          <figcaption>Outcome rates by unemployment rate (binned).</figcaption>
+        </zy>
+      </div>
+    </section>
+
+    <!-- Interpretability -->
+    <section class="card" id="interpretability">
+      <div class="card-head">
+        <h2>Model Explainability</h2>
+        <span class="pill">Logistic regression coefficients</span>
+      </div>
+
+      <div class="tri-grid">
+        <div class="mini-card">
+          <h3>Dropout</h3>
+          <img class="img" src="assets/explain_bars_dropout.jpg" alt="Dropout explanation" />
+        </div>
+
+        <div class="mini-card">
+          <h3>Enrolled</h3>
+          <img class="img" src="assets/explain_bars_enrolled.jpg" alt="Enrolled explanation" />
+        </div>
+
+        <div class="mini-card">
+          <h3>Graduate</h3>
+          <img class="img" src="assets/explain_bars_graduate.jpg" alt="Graduate explanation" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Data Source -->
+    <section class="card" id="data">
+      <div class="card-head">
+        <h2>Data Source & Attribution</h2>
+        <span class="pill">APA citation</span>
+      </div>
+
+      <p class="caption">
+        The dataset used in this project is adapted from the following peer-reviewed study:
+      </p>
+
+      <p class="caption">
+        Realinho, V., Machado, J., Baptista, L., &amp; Martins, M. V. (2022).
+        <em>Predicting student dropout and academic success</em>.
+        <em>Education Sciences</em>, 12(4), 276.
+        https://doi.org/10.3390/educsci12040276
+      </p>
+
+      <p class="small-note">
+        Kaggle distributions of this dataset trace back to the above publication. All credit for data
+        collection and study design belongs to the original authors.
+      </p>
+    </section>
+
+    <!-- Footer -->
     <footer class="footer">
-      <p>Built with Python (pandas, scikit-learn, matplotlib) + GitHub Pages.</p>
+      <p>
+        Built with Python, pandas, scikit-learn • Deployed on GitHub Pages
+      </p>
     </footer>
   </main>
 </body>
