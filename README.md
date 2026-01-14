@@ -45,8 +45,8 @@ This dataset includes demographic attributes, academic performance indicators, a
 
 The Kaggle dataset was curated and shared by the following contributors:
 - **The Devastator**  
-- **CarmelH**  
-- **Sean Mauer**
+- **carmelh**  
+- **n8mauer**
 
 Their work enabled broader access to the dataset for educational and research purposes.
 
