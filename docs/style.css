@@ -253,3 +253,7 @@ figure figcaption{
   .grid{ grid-template-columns: 1fr; }
   table{ min-width: 620px; }
 }
+
+.clickable { cursor: zoom-in; }
+a:hover .clickable { opacity: 0.96; }
+
