@@ -44,7 +44,6 @@
     <section class="card">
       <div class="card-head">
         <h2>Project Overview</h2>
-        <span class="pill">What this is</span>
       </div>
 
       <p class="caption">
@@ -127,12 +126,12 @@
           <figcaption>Marital status shows different enrollment trajectories.</figcaption>
         </figure>
 
-        <figure>
-          <a href="assets/heatmap_rate_unemployment_rate.jpg" target="_blank" rel="noreferrer">
-            <img class="img clickable" src="assets/heatmap_rate_unemployment_rate.jpg" alt="Outcome rates by Unemployment rate (click to open)" />
-          </a>
-          <figcaption>Unemployment rate gives context about the external environment.</figcaption>
-        </figure>
+       <figure class="center-on-large">
+         <a href="assets/heatmap_rate_unemployment_rate.jpg" target="_blank" rel="noreferrer">
+           <img class="img clickable" src="assets/heatmap_rate_unemployment_rate.jpg" alt="Outcome rates by Unemployment rate (click to open)"/>
+         </a>
+         <figcaption>Unemployment rate gives context about the external environment.</figcaption>
+       </figure>
       </div>
     </section>
 
@@ -140,7 +139,7 @@
     <section class="card">
       <div class="card-head">
         <h2>Model Evaluation</h2>
-        <span class="pill">Confusion matrix + metrics</span>
+        <span class="pill">Confusion matrix + Metrics</span>
       </div>
 
       <p class="caption">
@@ -156,10 +155,16 @@
       </p>
 
       <p class="small-note">
-        <strong>TP/FP/FN/TN in multiclass:</strong>
-        TP/FP/FN/TN are defined per class using a one-vs-rest view. For example, for <em>Dropout</em>, TP are students who truly
-        dropped out and were predicted as Dropout; FP are predicted Dropout but actually Enrolled/Graduate; FN are true Dropouts
-        predicted as something else; TN are non-dropouts predicted as non-dropout.
+        <strong>TP / FP / FN / TN and the confusion matrix (intuitive explanation):</strong>
+        In a multiclass problem like Dropout, Enrolled, and Graduate, these terms are defined one class at a time
+        using a “one-vs-rest” view. For example, when focusing on <em>Dropout</em>, a <strong>true positive</strong>
+        is a student who actually dropped out and was predicted as Dropout. A <strong>false positive</strong> is
+        predicted as Dropout but stayed enrolled or graduated, while a <strong>false negative</strong> is a true
+        dropout predicted as something else. A <strong>true negative</strong> is a non-dropout correctly predicted
+        as non-dropout. In the confusion matrix, rows represent the true outcomes and columns represent the model’s
+        predictions. The <em>diagonal cells</em> show correct predictions, while the <em>off-diagonal cells</em>
+        show errors where one outcome is confused for another. Metrics like precision and recall summarize these
+        patterns across the dataset.
       </p>
 
       <p class="small-note">
@@ -201,11 +206,19 @@
         </div>
       </div>
 
+      <p class="small-note">
+        Note: <strong>4,424</strong> is the full dataset size, while <strong>885</strong> students were held out as a
+        test set for evaluating the model. All reported metrics and the confusion matrix are based on this test set. 
+        <strong>Test set size:</strong> The evaluation metrics and confusion matrix are computed on a held-out test set of
+        <strong>885 students</strong> (20% of the dataset). This helps estimate how well the model generalizes to new students.
+      </p> 
+
+
+
       <div class="divider"></div>
 
       <div class="card-head">
         <h2>Model Explainability</h2>
-        <span class="pill">Which features matter</span>
       </div>
 
       <p class="caption">
@@ -241,7 +254,6 @@
     <section class="card">
       <div class="card-head">
         <h2>Discussion</h2>
-        <span class="pill">Why it matters</span>
       </div>
 
       <p class="caption">
@@ -251,7 +263,7 @@
 
       <p class="caption">
         In the real world, a tool like this could help guide supportive interventions (advising, tutoring, financial outreach).
-        Because the data is observational, these results are associations—not causal claims—and fairness checks are important
+        Because the data is observational, these results are associations, not causal claims, and fairness checks are important
         before deployment.
       </p>
     </section>
@@ -269,6 +281,12 @@
         <em>Education Sciences</em>, 12(4), 276.
         https://doi.org/10.3390/educsci12040276
       </p>
+
+      <p class="small-note">
+      <strong>Dataset size:</strong> The dataset used in this project contains <strong>4,424 student records</strong>.
+      Each record represents one student, with demographic, socioeconomic, academic, and macroeconomic features.
+      </p>
+
 
       <p class="small-note">
         Kaggle distributions of this dataset were shared by The Devastator, CarmelH, and Sean Mauer.
