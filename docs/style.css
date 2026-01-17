@@ -281,4 +281,12 @@ code{
   table{ min-width: 620px; }
 }
 
+.brand-icon-img{
+  width:34px;
+  height:34px;
+  border-radius:10px;
+  background: linear-gradient(135deg, #7aa2ff, #9b7aff);
+  padding:6px;
+}
+
 
