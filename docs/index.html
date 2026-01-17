@@ -189,7 +189,7 @@
       <!-- Metrics block with placeholders -->
       <div class="grid-2">
         <div class="mini-card">
-          <h3>Key Metrics (Test Set)</h3>
+          <h3>Key Metrics</h3>
 
           <p class="caption">
             <strong>Accuracy:</strong> <span class="metric">74.12%</span><br>
@@ -204,17 +204,30 @@
           </p>
         </div>
 
-        <div class="mini-card">
-          <h3>Math (quick)</h3>
-          <p class="caption">
-            For any class: Precision = TP/(TP+FP) and Recall = TP/(TP+FN). These are computed per class using one-vs-rest,
-            then averaged (macro) to summarize multiclass performance.
-          </p>
-        </div>
-      </div>
+        <h3>Math</h3>
+        <p class="caption math">
+          For any class:
+          <br>
+          <strong>Precision</strong> =
+          <span class="formula">
+            TP / (TP + FP)
+          </span>
+          <br>
+          <strong>Recall</strong> =
+          <span class="formula">
+            TP / (TP + FN)
+         </span>
+        </p>
 
+       <p class="small-note">
+        These values are computed for each class using a
+        <em>one-vs-rest</em> approach, then averaged (<em>macro average</em>)
+        to summarize multiclass performance.
+       </p>
+
+      <h3>Note:</h3>
       <p class="small-note">
-        Note: <strong>4,424</strong> is the full dataset size, while <strong>885</strong> students were held out as a
+        <strong>4,424</strong> is the full dataset size, while <strong>885</strong> students were held out as a
         test set for evaluating the model. All reported metrics and the confusion matrix are based on this test set.
         <strong>Test set size:</strong> The evaluation metrics and confusion matrix are computed on a held-out test set of
         <strong>885 students</strong> (20% of the dataset). This helps estimate how well the model generalizes to new students.
