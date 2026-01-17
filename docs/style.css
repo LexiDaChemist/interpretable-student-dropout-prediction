@@ -272,3 +272,5 @@ a:hover .clickable { opacity: 0.96; }
   }
 }
 
+.figure img { cursor: zoom-in; }
+
