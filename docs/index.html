@@ -16,6 +16,7 @@
          Student Dropout Prediction
        </span>
 
+
       <div class="nav-links">
         <a class="btn-link"
            href="https://github.com/LexiDaChemist/interpretable-student-dropout-prediction"
@@ -185,9 +186,9 @@
         <figcaption>Confusion matrix comparing true student outcomes with model predictions. (click to open full resolution).</figcaption>
       </figure>
 
-      <!-- Metrics block (UPDATED: Math on right + Note spans both + vertical fractions) -->
+      <!-- Metrics block -->
       <div class="grid-2">
-        <!-- Left: Key Metrics -->
+
         <div class="mini-card">
           <h3>Key Metrics</h3>
 
@@ -204,26 +205,22 @@
           </p>
         </div>
 
-        <!-- Right: Math -->
         <div class="mini-card">
           <h3>Math</h3>
 
           <p class="caption math">
             For any class:
-            <br><br>
-
+            <br>
             <strong>Precision</strong> =
-            <span class="vfrac" aria-label="TP over TP plus FP">
-              <span class="num">TP</span>
-              <span class="den">TP + FP</span>
+            <span class="vfrac">
+              <span class="vfrac-num">TP</span>
+              <span class="vfrac-den">TP + FP</span>
             </span>
-
-            <br><br>
-
+            <br>
             <strong>Recall</strong> =
-            <span class="vfrac" aria-label="TP over TP plus FN">
-              <span class="num">TP</span>
-              <span class="den">TP + FN</span>
+            <span class="vfrac">
+              <span class="vfrac-num">TP</span>
+              <span class="vfrac-den">TP + FN</span>
             </span>
           </p>
 
@@ -234,7 +231,6 @@
           </p>
         </div>
 
-        <!-- Bottom: Note spans both columns -->
         <div class="note-block">
           <h3>Note:</h3>
           <p class="small-note">
@@ -244,6 +240,7 @@
             <strong>885 students</strong> (20% of the dataset). This helps estimate how well the model generalizes to new students.
           </p>
         </div>
+
       </div>
 
       <div class="divider"></div>
@@ -324,6 +321,64 @@
         Kaggle distributions of this dataset were shared by The Devastator, CarmelH, and Sean Mauer.
         All credit for data collection and study design belongs to the original authors.
       </p>
+
+      <!-- NEW: Dataset Upload UI -->
+      <div class="divider"></div>
+
+      <h3>Upload the Dataset (CSV)</h3>
+      <p class="small-note">
+        This site is static (GitHub Pages), so uploading here is for selecting a file locally (for demos / validation).
+        It does not permanently store your file.
+      </p>
+
+      <form class="upload-box" action="#" method="post">
+        <label class="upload-btn" for="datasetFile">
+          Choose CSV File
+        </label>
+        <input
+          id="datasetFile"
+          name="datasetFile"
+          type="file"
+          accept=".csv"
+        />
+
+        <div class="upload-meta">
+          <span class="upload-filename" id="uploadFilename">No file selected</span>
+        </div>
+
+        <!-- Optional submit button (won't do anything without a backend) -->
+        <button class="upload-submit" type="button" id="uploadFakeBtn">
+          Upload (demo)
+        </button>
+
+        <p class="upload-hint" id="uploadHint" aria-live="polite"></p>
+      </form>
+
+      <!-- tiny inline script to show selected file name (safe + minimal) -->
+      <script>
+        (function () {
+          const input = document.getElementById("datasetFile");
+          const filename = document.getElementById("uploadFilename");
+          const hint = document.getElementById("uploadHint");
+          const fakeBtn = document.getElementById("uploadFakeBtn");
+
+          input.addEventListener("change", () => {
+            const file = input.files && input.files[0];
+            filename.textContent = file ? file.name : "No file selected";
+            hint.textContent = "";
+          });
+
+          fakeBtn.addEventListener("click", () => {
+            const file = input.files && input.files[0];
+            if (!file) {
+              hint.textContent = "Please choose a .csv file first.";
+              return;
+            }
+            hint.textContent = "Selected: " + file.name + " (Static site demo — not uploaded anywhere.)";
+          });
+        })();
+      </script>
+
     </section>
 
     <footer class="footer">
@@ -333,3 +388,4 @@
   </main>
 </body>
 </html>
+
