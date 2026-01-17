@@ -257,3 +257,18 @@ figure figcaption{
 .clickable { cursor: zoom-in; }
 a:hover .clickable { opacity: 0.96; }
 
+@media (min-width: 768px) {
+  .center-on-large {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+@media (min-width: 768px) {
+  .center-on-large img {
+    max-width: 90%;
+  }
+}
+
