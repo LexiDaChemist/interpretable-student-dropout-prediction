@@ -126,12 +126,13 @@
           <figcaption>Marital status shows different enrollment trajectories.</figcaption>
         </figure>
 
-       <figure class="center-on-large">
-         <a href="assets/heatmap_rate_unemployment_rate.jpg" target="_blank" rel="noreferrer">
-           <img class="img clickable" src="assets/heatmap_rate_unemployment_rate.jpg" alt="Outcome rates by Unemployment rate (click to open)"/>
-         </a>
-         <figcaption>Unemployment rate gives context about the external environment.</figcaption>
-       </figure>
+        <!-- Centered + slightly larger only on tablet/desktop -->
+        <figure class="center-on-large large-figure">
+          <a href="assets/heatmap_rate_unemployment_rate.jpg" target="_blank" rel="noreferrer">
+            <img class="img clickable" src="assets/heatmap_rate_unemployment_rate.jpg" alt="Outcome rates by Unemployment rate (click to open)" />
+          </a>
+          <figcaption>Unemployment rate gives context about the external environment.</figcaption>
+        </figure>
       </div>
     </section>
 
@@ -173,10 +174,13 @@
         especially important for three outcomes.
       </p>
 
-      <!-- Confusion matrix (clickable) -->
-      <a href="assets/confusion_matrix.jpg" target="_blank" rel="noreferrer">
-        <img class="img clickable" src="assets/confusion_matrix.jpg" alt="Confusion matrix (click to open)" />
-      </a>
+      <!-- Confusion matrix (smaller like other figures) -->
+      <figure class="cmatrix-figure">
+        <a href="assets/confusion_matrix.jpg" target="_blank" rel="noreferrer">
+          <img class="img clickable cmatrix" src="assets/confusion_matrix.jpg" alt="Confusion matrix (click to open)" />
+        </a>
+        <figcaption>Confusion matrix on the held-out test set (click to open full resolution).</figcaption>
+      </figure>
 
       <!-- Metrics block with placeholders -->
       <div class="grid-2">
@@ -184,11 +188,10 @@
           <h3>Key Metrics (Test Set)</h3>
 
           <p class="caption">
-             <strong>Accuracy:</strong> <span class="metric">74.12%</span><br>
-             <strong>Macro Precision:</strong> <span class="metric">71.24%</span><br>
-             <strong>Macro Recall:</strong> <span class="metric">71.40%</span>
+            <strong>Accuracy:</strong> <span class="metric">74.12%</span><br>
+            <strong>Macro Precision:</strong> <span class="metric">71.24%</span><br>
+            <strong>Macro Recall:</strong> <span class="metric">71.40%</span>
           </p>
-
 
           <p class="small-note">
             These metrics summarize how the model performs across the same test students used in the confusion matrix.
@@ -208,12 +211,10 @@
 
       <p class="small-note">
         Note: <strong>4,424</strong> is the full dataset size, while <strong>885</strong> students were held out as a
-        test set for evaluating the model. All reported metrics and the confusion matrix are based on this test set. 
+        test set for evaluating the model. All reported metrics and the confusion matrix are based on this test set.
         <strong>Test set size:</strong> The evaluation metrics and confusion matrix are computed on a held-out test set of
         <strong>885 students</strong> (20% of the dataset). This helps estimate how well the model generalizes to new students.
-      </p> 
-
-
+      </p>
 
       <div class="divider"></div>
 
@@ -279,14 +280,15 @@
         Realinho, V., Machado, J., Baptista, L., &amp; Martins, M. V. (2022).
         <em>Predicting student dropout and academic success</em>.
         <em>Education Sciences</em>, 12(4), 276.
-        https://doi.org/10.3390/educsci12040276
+        <a href="https://doi.org/10.3390/educsci12040276" target="_blank" rel="noopener noreferrer">
+          https://doi.org/10.3390/educsci12040276
+        </a>
       </p>
 
       <p class="small-note">
-      <strong>Dataset size:</strong> The dataset used in this project contains <strong>4,424 student records</strong>.
-      Each record represents one student, with demographic, socioeconomic, academic, and macroeconomic features.
+        <strong>Dataset size:</strong> The dataset used in this project contains <strong>4,424 student records</strong>.
+        Each record represents one student, with demographic, socioeconomic, academic, and macroeconomic features.
       </p>
-
 
       <p class="small-note">
         Kaggle distributions of this dataset were shared by The Devastator, CarmelH, and Sean Mauer.
@@ -301,4 +303,5 @@
   </main>
 </body>
 </html>
+
 
