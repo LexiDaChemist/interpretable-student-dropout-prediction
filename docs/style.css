@@ -281,12 +281,24 @@ code{
   table{ min-width: 620px; }
 }
 
-.brand-icon-img{
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:700;
+  letter-spacing:.2px;
+}
+
+.brand-icon{
   width:34px;
   height:34px;
+  display:grid;
+  place-items:center;
   border-radius:10px;
   background: linear-gradient(135deg, #7aa2ff, #9b7aff);
-  padding:6px;
+  box-shadow: 0 6px 18px rgba(122,162,255,.45);
+  font-size:18px;
 }
+
 
 
