@@ -16,7 +16,6 @@
          Student Dropout Prediction
        </span>
 
-
       <div class="nav-links">
         <a class="btn-link"
            href="https://github.com/LexiDaChemist/interpretable-student-dropout-prediction"
@@ -212,16 +211,10 @@
             For any class:
             <br>
             <strong>Precision</strong> =
-            <span class="vfrac">
-              <span class="vfrac-num">TP</span>
-              <span class="vfrac-den">TP + FP</span>
-            </span>
+            <span class="formula-inline">TP / (TP + FP)</span>
             <br>
             <strong>Recall</strong> =
-            <span class="vfrac">
-              <span class="vfrac-num">TP</span>
-              <span class="vfrac-den">TP + FN</span>
-            </span>
+            <span class="formula-inline">TP / (TP + FN)</span>
           </p>
 
           <p class="small-note">
@@ -322,63 +315,13 @@
         All credit for data collection and study design belongs to the original authors.
       </p>
 
-      <!-- NEW: Dataset Upload UI -->
-      <div class="divider"></div>
-
-      <h3>Upload the Dataset (CSV)</h3>
+      <!-- NEW: Download link (place your CSV in /data/ and update filename) -->
       <p class="small-note">
-        This site is static (GitHub Pages), so uploading here is for selecting a file locally (for demos / validation).
-        It does not permanently store your file.
+        Optional download for convenience:
+        <a class="download-link" href="data/student_dropout_dataset.csv" download>
+          Download CSV
+        </a>
       </p>
-
-      <form class="upload-box" action="#" method="post">
-        <label class="upload-btn" for="datasetFile">
-          Choose CSV File
-        </label>
-        <input
-          id="datasetFile"
-          name="datasetFile"
-          type="file"
-          accept=".csv"
-        />
-
-        <div class="upload-meta">
-          <span class="upload-filename" id="uploadFilename">No file selected</span>
-        </div>
-
-        <!-- Optional submit button (won't do anything without a backend) -->
-        <button class="upload-submit" type="button" id="uploadFakeBtn">
-          Upload (demo)
-        </button>
-
-        <p class="upload-hint" id="uploadHint" aria-live="polite"></p>
-      </form>
-
-      <!-- tiny inline script to show selected file name (safe + minimal) -->
-      <script>
-        (function () {
-          const input = document.getElementById("datasetFile");
-          const filename = document.getElementById("uploadFilename");
-          const hint = document.getElementById("uploadHint");
-          const fakeBtn = document.getElementById("uploadFakeBtn");
-
-          input.addEventListener("change", () => {
-            const file = input.files && input.files[0];
-            filename.textContent = file ? file.name : "No file selected";
-            hint.textContent = "";
-          });
-
-          fakeBtn.addEventListener("click", () => {
-            const file = input.files && input.files[0];
-            if (!file) {
-              hint.textContent = "Please choose a .csv file first.";
-              return;
-            }
-            hint.textContent = "Selected: " + file.name + " (Static site demo — not uploaded anywhere.)";
-          });
-        })();
-      </script>
-
     </section>
 
     <footer class="footer">
@@ -388,4 +331,5 @@
   </main>
 </body>
 </html>
+
 
