@@ -314,92 +314,37 @@ code{
   white-space: nowrap;
 }
 
-/* --------- FRACTIONS + NOTE PLACEMENT --------- */
+/* --------- ONLY NEW/CHANGED STUFF --------- */
 
+/* make Note sit under both columns */
 .note-block{
   grid-column: 1 / -1;
 }
 
-.vfrac{
-  display:inline-flex;
-  flex-direction:column;
-  align-items:center;
-  vertical-align:middle;
-  margin-left:6px;
+/* textbook-ish inline formulas */
+.formula-inline{
   font-family: "Cambria Math", "Times New Roman", serif;
-  line-height:1.05;
+  background: rgba(255,255,255,.06);
+  padding: 2px 8px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,.12);
+  margin-left: 6px;
+  white-space: nowrap;
 }
 
-.vfrac-num{
-  padding: 0 6px;
-}
-
-.vfrac-den{
-  border-top: 1px solid rgba(234,240,255,.75);
-  padding: 3px 6px 0;
-}
-
-/* --------- NEW: UPLOAD UI STYLES --------- */
-
-.upload-box{
-  margin-top: 10px;
-  padding: 12px;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  background: rgba(255,255,255,.03);
-}
-
-.upload-box input[type="file"]{
-  /* hide default file input (we use label button) */
-  position: absolute;
-  left: -9999px;
-}
-
-.upload-btn{
+/* dataset download link styling */
+.download-link{
   display:inline-block;
-  padding:10px 12px;
+  margin-left:8px;
+  padding:6px 10px;
   border-radius:12px;
   border:1px solid rgba(122,162,255,.35);
   background: rgba(122,162,255,.12);
   color: var(--text);
-  cursor:pointer;
-  font-size:.95rem;
+  text-decoration:none;
 }
 
-.upload-btn:hover{
+.download-link:hover{
   filter: brightness(1.05);
 }
 
-.upload-meta{
-  margin-top:10px;
-  color: rgba(234,240,255,.75);
-  font-size:.92rem;
-}
-
-.upload-filename{
-  display:inline-block;
-  padding:6px 8px;
-  border-radius:10px;
-  border:1px solid rgba(255,255,255,.10);
-  background: rgba(255,255,255,.04);
-}
-
-.upload-submit{
-  margin-top:10px;
-  padding:10px 12px;
-  border-radius:12px;
-  border:1px solid rgba(255,255,255,.14);
-  background: rgba(255,255,255,.06);
-  color: var(--text);
-  cursor:pointer;
-}
-
-.upload-submit:hover{
-  filter: brightness(1.05);
-}
-
-.upload-hint{
-  margin-top:10px;
-  color: rgba(234,240,255,.65);
-  font-size:.90rem;
-}
