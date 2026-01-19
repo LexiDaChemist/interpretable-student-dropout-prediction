@@ -187,9 +187,27 @@ h1{
 
 /* ---------- IMAGES (CONSISTENT ON ALL SCREENS) ---------- */
 
-.img{
+/* ---------- IMAGES (ONE SIZE FOR ALL FIGURES) ---------- */
+
+figure{
+  margin:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+}
+
+/* Layout-only: let centered figures span full grid width on desktop */
+@media (min-width: 768px){
+  figure.center-on-large{
+    grid-column: 1 / -1;
+  }
+}
+
+/* THE ONE RULE: every chart image is the same size everywhere */
+img.img{
   width: 100%;
-  max-width: 100%;
+  max-width: 720px;   /* <-- pick ONE value (720 matches your “other” cards nicely) */
   height: auto;
   display: block;
   margin: 0 auto;
@@ -200,31 +218,6 @@ h1{
   background: rgba(255,255,255,.03);
 }
 
-/* Make any figure behave the same everywhere */
-figure{
-  margin: 0;
-}
-
-/* Center figures that are meant to span wide, but keep sizing consistent */
-figure.center-on-large{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-/* ONE rule for ALL centered figures (no special casing) */
-figure.center-on-large img.img{
-  width: 100%;
-  max-width: 820px;   /* pick the "others" size you like */
-}
-
-/* If you want it a touch smaller on very small screens, use this */
-@media (max-width: 480px){
-  figure.center-on-large img.img{
-    max-width: 100%;
-  }
-}
 
 /* ---------- TABLES ---------- */
 
