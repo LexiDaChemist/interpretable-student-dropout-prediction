@@ -185,47 +185,43 @@ h1{
   font-size:.90rem;
 }
 
-/* ---------- IMAGES ---------- */
+/* ---------- IMAGES (CONSISTENT ON ALL SCREENS) ---------- */
 
 .img{
-  width:100%;
-  height:auto;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  object-fit: contain;
+
   border-radius: 12px;
-  border:1px solid rgba(255,255,255,.10);
+  border: 1px solid rgba(255,255,255,.10);
   background: rgba(255,255,255,.03);
-  display:block;
 }
 
-.clickable { cursor: zoom-in; }
-a:hover .clickable { opacity: 0.96; }
-
-/* Center + slightly enlarge one figure on tablet/desktop */
-@media (min-width: 768px) {
-
-  figure.center-on-large{
-    grid-column: 1 / -1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  /* Unemployment heatmap — slightly larger */
-  figure.center-on-large.large-figure img{
-    width: 100%;
-    max-width: 820px;
-  }
-
-  /* Confusion matrix — slightly smaller than other figures */
-  img.cmatrix{
-    width: 100%;
-    max-width: 720px;
-  }
+/* Make any figure behave the same everywhere */
+figure{
+  margin: 0;
 }
 
-/* Mobile: no forced scaling */
-@media (max-width: 767px){
-  figure.center-on-large.large-figure img{
+/* Center figures that are meant to span wide, but keep sizing consistent */
+figure.center-on-large{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* ONE rule for ALL centered figures (no special casing) */
+figure.center-on-large img.img{
+  width: 100%;
+  max-width: 820px;   /* pick the "others" size you like */
+}
+
+/* If you want it a touch smaller on very small screens, use this */
+@media (max-width: 480px){
+  figure.center-on-large img.img{
     max-width: 100%;
   }
 }
